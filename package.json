@@ -1,0 +1,43 @@
+{
+  "name": "Stera",
+  "author": "Stera",
+  "private": true,
+  "version": "1.0.0",
+  "main": "src/application/index.ts",
+  "description": "All in one automatic video uploader",
+  "license": "MIT",
+  "scripts": {
+    "serve": "concurrently -k \"vite\" \"yarn electron:dev\"",
+    "electron:dev": "cross-env IS_DEV=true electron-forge start",
+    "build": "vite build && yarn electron:build",
+    "electron:build": "electron-forge make",
+    "package": "vite build && electron:package",
+    "electron:package": "electron-forge package",
+    "generate-icon": "electron-icon-maker --input=./src/build/logo.png --output=./src/build"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-wix": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "@electron-forge/plugin-electronegativity": "^6.0.0-beta.63",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "electron": "17.0.1",
+    "electron-icon-maker": "^0.0.5",
+    "exe-icon-extractor": "^1.0.8",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0",
+    "vue-tsc": "^0.29.8"
+  },
+  "config": {
+    "forge": "./forge.config.js"
+  }
+}
